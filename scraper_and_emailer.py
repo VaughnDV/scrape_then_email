@@ -7,11 +7,11 @@ import csv
 page_counter = 0
 item_counter = 0
 mailing_list = []
-usrl_list = ["http://www.yellowpages.co.za/Search/security/", 
-			"http://www.yellowpages.co.za/Search/neighbourhood+watch/",
-			"http://www.yellowpages.co.za/Search/sa+police/",  
-			"http://www.yellowpages.co.za/Search/municipalities/",
-			"http://www.yellowpages.co.za/Search/community/"]
+usrl_list = ["http://www.yellowpages.co.za/Search/SEARCH OPTION/", 
+			"http://www.yellowpages.co.za/Search/SEARCH OPTION2/",
+			"http://www.yellowpages.co.za/Search/SEARCH OPTION3/",  
+			"http://www.yellowpages.co.za/Search/SEARCH OPTION4/",
+			"http://www.yellowpages.co.za/Search/SEARCH OPTION5/"]
 
 for page in range(1, 100):
 
@@ -83,7 +83,7 @@ name = "Subscriber"
 for recipient in mailing_list:
 	# Create message container - the correct MIME type is multipart/alternative.
 	msg = MIMEMultipart('alternative')
-	msg['Subject'] = "Report Prowlers Service"
+	msg['Subject'] = "YOUR COMAPNY SERVICE"
 	msg['From'] = me
 	msg['To'] = recipient['email']
 
@@ -94,7 +94,7 @@ for recipient in mailing_list:
 	  <head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	    <meta name="viewport" content="width=device-width">
-	    <title>Report Prowlers</title>
+	    <title>YOUR COMPANY</title>
 	    <style>
 	    body {
 			  width: 100% !important;
@@ -113,56 +113,22 @@ for recipient in mailing_list:
 
 
 
-	    <img src="http://www.reportprowlers.co.za/static/images/reportprowlersbanner.png">
+	    <img src="LINK TO YOU BANNER IMAGE">
 
 
 		  <p>Dear Sirs, <br></p>
 		  <p>Please may I have a moment of your time to explain our service.<br></p>
-		  <p>Report Prowlers is an internet based service designed to advance security in neighborhoods through simplified online communication between the neighborhood's residents, and the local security services.<br><br></p>
-		  <h3 class="text-center" style="color: #28475C;"><strong>How it works:</strong></h3>
-		  <p><br><strong>USERS = Area's Residents and Security Personal on patrol</strong><br><br>
-		  Users login, and send reports of suspicious activity in their area. Its free, and easy to use. From the USERS perspective, the process is as follows:<br><br>
-		  </p>
-		  <p class="text-center" style="color: #28475C;">Login > Send Report > Safer Neighborhood</p>
-		  <br><br>
-		  </p>
-		  <p><strong>SUBSCRIBERS = Area's Security Services: </strong><br><br>
-		  Receive these reports, with additional intelligence on comparisons with other recent reports, recommended response level. Subscribers pay a monthly subscription fee for each area they wish to monitor:<br><br></p>
-		  <p class="text-center" style="color: #28475C;">Monitor Emails > Receive Reports > Allocate Appropriate Response</p>
-		  <br><br>
-		  <p><strong>BUILT TO BE:</strong><br><br>
-		  <ul>
-		    <li>Fast and reliable, using Google's Emailing Servers</li>
-		    <li>Easy to use, and mobile phone friendly</li>
-		    <li>Stable using well established technologies</li>
-		    <li>Free for Users to send reports</li>
-		    <li>Cost effective subscription fees at R150/Month per subscribed area</li>
-		    <li>Helpful in your marketing stratergy with regards to promoting your product or services</li>
-		    <li>Promoted on social media platforms such as facebook and twitter ** Campaigns already under way</li>
-		    <li>Easy to setup: No installation, no additional hardware, no proprietary software</li>
-		    <li>A proactive approach in preventing incedents in your areas</li>
-		    <li>Helpful in deciding where to allocate resources</li>
-		    <li>Structured and easy to understand reports</li>
-		    <li>Helpful in building intelligence</li>
-		    <li>Available everywhere in South Africa</li>
-		  </ul>
-		  <br><br></p>
-		  <p class="text-center" style="color: #28475C;">Click on the image below to visit the website</p>
-
-		  <a href="http://www.reportprowlers.co.za"> <img src="http://www.reportprowlers.co.za/static/images/fbreportprowlers.png"></a>
-		  
-		  <h3>Click <a href="www.reportprowlers.co.za/register"> here </a>to subscribe or to recieve additional information</h3>
-
-		  <p>Please do not hesitate to <a href="mailto:reportprowlers@gmail.com">contact us</a> should you have any queries</p>
+		
+		  <p>Please do not hesitate to <a href="mailto:your.emai@provider.com">contact us</a> should you have any queries</p>
 
 		  <p>Sincerely Yours,<br><br></p>
 
-	    <h5>Hannah Swan</h5>
+	    <h5>SALES CONSULTANT NAME</h5>
 	    <p>Sales Manager<br>
-	    Report Prowlers<br>
-	    Phone: 039 319 1088<br>
-	    Mobile: 078 738 4038<br>
-	    Email: <a href="mailto:reportprowlers@gmail.com">reportprowlers@gmail.com</a></p>
+	    YOUR COMAPNY<br>
+	    Phone: 555 319 1088<br>
+	    Mobile:555 738 4038<br>
+	    Email: <a href="mailto:your.emai@provider.com">your.emai@provider.com</a></p>
 
 
 	  </body>
@@ -177,8 +143,8 @@ for recipient in mailing_list:
 
 
 
-	gmail_user = 'reportprowlers@gmail.com'
-	gmail_password = '123password123'
+	gmail_user = 'your.emai@provider.com'
+	gmail_password = 'yourpassword'
 
 	try:
 		server = smtplib.SMTP(host ='smtp.gmail.com', port='587')
@@ -190,7 +156,6 @@ for recipient in mailing_list:
 		server.login(gmail_user, gmail_password)
 		print('Logged in')
 		server.sendmail(me, recipient['email'], msg.as_string())
-		#server.sendmail(me, "vaughndevilliers@gmail.com", msg.as_string())
 		print('sent')
 		server.quit()
 		print('successfully sent the mail to ' + recipient['email'])
